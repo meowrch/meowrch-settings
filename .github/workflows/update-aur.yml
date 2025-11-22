@@ -31,13 +31,13 @@ jobs:
             -e "s|^source=.*|source=(\"\$url/archive/refs/tags/v\$pkgver.tar.gz\")|" \
             -e "s/meowrch-settings-v\$pkgver/meowrch-settings-\$pkgver/" \
             -e "s/^sha256sums=.*/sha256sums=('${{ steps.sha256.outputs.hash }}')/" \
-            PKGBUILD.stable
+            PKGBUILD
 
       - name: Deploy Stable version
         uses: KSXGitHub/github-actions-deploy-aur@master
         with:
           pkgname: meowrch-settings
-          pkgbuild: ./PKGBUILD.stable
+          pkgbuild: ./PKGBUILD
           commit_username: ${{ secrets.AUR_USERNAME }}
           commit_email: ${{ secrets.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_KEY }}
