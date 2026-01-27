@@ -3,11 +3,11 @@
 pkgname=meowrch-settings
 pkgver=3.0.0
 pkgrel=1
-pkgdesc="System optimization settings for Meowrch distribution with dconf integration"
+pkgdesc="System optimization settings for Meowrch"
 arch=('any')
 url="https://github.com/meowrch/meowrch-settings"
 license=('MIT')
-depends=('systemd' 'zram-generator' 'pipewire' 'earlyoom' 'pciutils' 'dconf')
+depends=('systemd' 'zram-generator' 'pipewire' 'earlyoom' 'pciutils')
 optdepends=('nvidia-utils: for NVIDIA GPU optimizations'
             'amd-ucode: for AMD CPU microcode'
             'intel-ucode: for Intel CPU microcode'
