@@ -26,6 +26,17 @@ post_install() {
     # Включаем и запускаем earlyoom
     systemctl enable earlyoom.service
     systemctl start earlyoom.service
+
+    # Включаем ananicy-cpp если установлен
+    if command -v ananicy-cpp &> /dev/null; then
+        systemctl enable ananicy-cpp.service
+        systemctl start ananicy-cpp.service 2>/dev/null || true
+        echo "==> ananicy-cpp service enabled"
+    else
+        echo "==> Optional: Install ananicy-cpp for automatic process priority management"
+        echo "    yay -S ananicy-cpp cachyos-ananicy-rules"
+        echo "    sudo systemctl enable --now ananicy-cpp.service"
+    fi
     
     # Перезагружаем udev правила
     udevadm control --reload-rules

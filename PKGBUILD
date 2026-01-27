@@ -1,7 +1,7 @@
 # Maintainer: dimflix <dimflix.official@gmail.com>
 # Updated with automatic SHA256 hash calculation
 pkgname=meowrch-settings
-pkgver=3.1.1
+pkgver=3.1.2
 pkgrel=1
 pkgdesc="System optimization settings for Meowrch"
 arch=('any')
