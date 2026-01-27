@@ -14,11 +14,11 @@ post_install() {
     systemctl start systemd-zram-setup@zram0.service
     
     # Настраиваем earlyoom (только если стандартный файл не изменён)
-    if [ ! -f /etc/default/earlyoom.pacnew ] && [ -f /etc/default/earlyoom.meowrch ]; then
-        if cmp -s /etc/default/earlyoom /etc/default/earlyoom.meowrch; then
+    if [ ! -f /etc/default/earlyoom.pacnew ] && [ -f /etc/default/earlyoom-meowrch ]; then
+        if cmp -s /etc/default/earlyoom /etc/default/earlyoom-meowrch; then
             echo "==> Earlyoom already configured with Meowrch settings"
         else
-            cp /etc/default/earlyoom.meowrch /etc/default/earlyoom
+            cp /etc/default/earlyoom-meowrch /etc/default/earlyoom
             echo "==> Applied Meowrch earlyoom configuration"
         fi
     fi

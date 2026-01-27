@@ -86,6 +86,28 @@ Uses `setpci` to directly modify PCI configuration space at boot.
 
 Both services run once at boot with `Type=oneshot` and `RemainAfterExit=yes` to maintain optimization state.
 
+## earlyoom: Early Out-Of-Memory Daemon
+**Purpose**: Prevents complete system freezes by proactively killing memory-hungry processes before OOM killer activation.  
+**Configuration**: `/etc/default/earlyoom-meowrch`
+
+**Protection Strategy**:
+* **Memory Threshold**: Triggers at **5% free RAM** (`-m 5`)
+* **Swap Threshold**: Triggers at **10% free swap** (`-s 10`)
+* **Protected Processes**: System-critical daemons (`init`, `systemd`, `Xorg`, `ssh`, `NetworkManager`, `pipewire`, `wireplumber`)
+* **Kill Candidates**: Memory-intensive applications prioritized (`firefox`, `chromium`, `electron`, `code`, `discord`, `telegram`, `steam`)
+* **Testing Mode**: Includes `--dryrun` flag by default (remove to enable actual process termination)
+
+Automatically enabled via `earlyoom.service` at boot, ensuring system remains responsive during memory pressure scenarios.
+
+## ananicy-cpp: Automatic Nice Daemon
+**Purpose**: Dynamically adjusts process priorities (nice levels, I/O class, OOM scores) based on predefined rules for optimal responsiveness.  
+**Rules**: `cachyos-ananicy-rules` - CachyOS-curated ruleset for gaming, desktop, and server workloads
+
+**Key Features**:
+* **Game Boost**: Automatically prioritizes game processes with high CPU/IO priority
+* **Background Tasks**: De-prioritizes compilers, package managers, and system maintenance
+* **Desktop Responsiveness**: Keeps GUI applications responsive under heavy background load
+* **OOM Score Adjustment**: Protects important processes from being killed first
 
 ## NVIDIA Hyprland VRAM Fix
 `/etc/nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool.json`
