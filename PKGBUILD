@@ -22,9 +22,4 @@ package() {
     # Copy organized structure
     cp -r "etc" "$pkgdir/"
     cp -r "usr" "$pkgdir/"
-    
-    # Install systemd configuration files
-    install -Dm644 "systemd-conf/system.conf.d/00-timeout.conf" "$pkgdir/etc/systemd/system.conf.d/00-timeout.conf"
-    install -Dm644 "systemd-conf/system.conf.d/limits.conf" "$pkgdir/etc/systemd/system.conf.d/limits.conf"
-    install -Dm644 "systemd-conf/journald.conf.d/00-journal-size.conf" "$pkgdir/etc/systemd/journald.conf.d/00-journal-size.conf"
 }
