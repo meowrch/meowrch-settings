@@ -1,6 +1,10 @@
 post_install() {
     echo "==> Enabling Meowrch optimizations..."
     
+    # Включаем мониторинг смены часового пояса
+    systemctl enable meowrch-iw-set-regdomain.path
+    systemctl start meowrch-iw-set-regdomain.service
+
     # Включаем и запускаем сервис оптимизаций
     systemctl enable meowrch-optimizations.service
     systemctl start meowrch-optimizations.service

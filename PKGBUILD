@@ -7,7 +7,7 @@ pkgdesc="System optimization settings for Meowrch"
 arch=('any')
 url="https://github.com/meowrch/meowrch-settings"
 license=('MIT')
-depends=('systemd' 'zram-generator' 'pipewire' 'earlyoom' 'pciutils' 'systemd' 'cachyos-ananicy-rules' 'ananicy-cpp')
+depends=('iw' 'systemd' 'zram-generator' 'pipewire' 'earlyoom' 'pciutils' 'systemd' 'cachyos-ananicy-rules' 'ananicy-cpp')
 optdepends=('nvidia-utils: for NVIDIA GPU optimizations'
             'amd-ucode: for AMD CPU microcode'
             'intel-ucode: for Intel CPU microcode'
@@ -28,4 +28,5 @@ package() {
     # Ensure scripts are executable
     chmod +x "$pkgdir/usr/bin/meowrch-apply-optimizations"
     chmod +x "$pkgdir/usr/bin/pci-latency"
+    chmod +x "$pkgdir/usr/lib/iw-set-regdomain"
 }
