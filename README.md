@@ -12,7 +12,7 @@ Udev rules automatically apply system configurations upon device detection or st
 * **ZRAM Swap Optimization**: Configures ZRAM to prefer anonymous page compression (`vm.swappiness=150`) and disables Zswap for efficient RAM-based swap.
 * **Device Permissions**: Sets `rtc0` and `hpet` device group to "audio" for proper application access.
 * **SATA Performance**: Configures SATA host link power management to `max_performance`.
-* **I/O Scheduler Assignment**: Dynamically assigns optimal I/O schedulers: `bfq` for HDDs, `mq-deadline` for SATA SSDs, and `none` for NVMe SSDs.
+* **I/O Scheduler Assignment**: Dynamically assigns optimal I/O schedulers: `bfq` for HDDs, `mq-deadline` for SATA SSDs, and `kyber` for NVMe SSDs.
 * **HDD Performance Tuning**: Applies `hdparm` settings (`-B 254 -S 0`) to rotational disks.
 * **NVIDIA Runtime Power Management**: Enables/disables NVIDIA GPU runtime power management on driver bind/unbind events.
 * **CPU DMA Latency Access**: Sets permissions for the `cpu_dma_latency` device.
