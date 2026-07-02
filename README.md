@@ -28,10 +28,8 @@ Modprobe configurations control module loading and behavior for hardware-specifi
 * **AMD GPU Driver Enforcement**: Forces `amdgpu` driver for GCN 1.0+ and 2.x GPUs, blacklisting `radeon`.
 * **Watchdog Module Blacklist**: Prevents loading of Intel TCO and AMD SP5100 watchdog timers.
 * **NVIDIA Driver Optimizations**: 
-  * `NVreg_UsePageAttributeTable=1` (PAT for CPU performance)
   * `NVreg_InitializeSystemMemoryAllocations=0` (disables memory clearing for GPU)
   * `NVreg_DynamicPowerManagement=0x02` (mobile GPU power saving)
-  * and `NVreg_EnableS0ixPowerManagement=1` (allows the NVIDIA GPU to enter deep sleep during system suspend).
 
 ## Systemd: Service & System Management
 Systemd unit and configuration files for streamlined boot, resource management, and service control.
